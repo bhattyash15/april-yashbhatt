@@ -1,0 +1,254 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Address {
+    city: String
+    country: String
+    state: String
+    street: String
+}
+
+type Contact {
+    address: Address
+    email: String
+    mobile: String
+}
+
+type Duration {
+    end: String
+    start: String
+}
+
+type Education {
+    degree: String
+    duration: Duration
+    field: String
+    grade: Float
+    school: String
+    summary: String
+}
+
+type Error {
+    code: Int
+    message: String
+}
+
+type Experience {
+    duration: Duration
+    location: String
+    org: String
+    responsibility: String
+    summary: String
+    title: String!
+}
+
+type Job {
+    _id: ID!
+    apply: String
+    body: String
+    createdAt: String
+    end: String
+    extra: String
+    publish: Boolean
+    start: String
+    title: String!
+    updatedAt: String
+    url: String
+    user: User
+}
+
+type Mutation {
+    createProject(input: ProjectInput!): Project
+    login(input: LoginInput): Profile
+    logout(input: String): Boolean
+    registerUser(input: UserInput): Profile
+    sendEmailVerificationCode(input: String): Boolean
+    updateUserProfile(id: String, input: ProfileInput): Profile
+    verifyUserEmail(input: String): User
+}
+
+type PageInfo {
+    cursor: String!
+    endCursor: String
+    hasNextPage: Boolean!
+    nextCursor: String
+    prevCursor: String
+    startCursor: String
+}
+
+type Post {
+    _id: ID!
+    body: String
+    createdAt: String
+    images: [String]
+    score: Int
+    tags: [Tag]
+    updatedAt: String
+    user: User
+}
+
+type Profile {
+    _id: ID!
+    address: Address
+    bio: String
+    branch: String
+    college: String
+    contact: Contact
+    degree: String
+    dob: String
+    fName: String!
+    fullName: String!
+    gender: String
+    globalRank: Int
+    lName: String
+    profilePicUrl: String
+    social: Social
+    tags: [Tag]
+    tagsRank: [TagRankResult]
+    university: String
+    website: String
+}
+
+type Project {
+    _id: ID!
+    body: String
+    createdAt: String
+    end: String
+    isPaid: Boolean
+    start: String
+    title: String!
+    titleType: String
+    type: String
+    updatedAt: String
+    user: User
+}
+
+type Projects {
+    docs: [Project]
+    hasNextPage: Boolean!
+    hasPrevPage: Boolean!
+    nextPage: Int
+    page: Int
+    prevPage: Int
+    totalDocs: Int
+    totalPages: Int
+}
+
+type Query {
+    allProjects(limit: Int, page: Int): Projects
+    allUsers(limit: Int, page: Int): Users
+}
+
+type Skill {
+    level: String
+    name: String
+}
+
+type Social {
+    facebook: String
+    github: String
+    linkedIn: String
+    twitter: String
+}
+
+type Tag {
+    _id: ID!
+    name: String!
+    weight: String!
+}
+
+type TagRankResult {
+    rank: Int
+    tag: Tag!
+}
+
+type User {
+    _id: ID!
+    createdAt: String
+    email: String
+    enabled: Boolean
+    lastLoginAt: String
+    profile: Profile
+    role: String
+    updatedAt: String
+    username: String
+    verified: Boolean
+}
+
+type Users {
+    docs: [User]
+    hasNextPage: Boolean!
+    hasPrevPage: Boolean!
+    nextPage: Int
+    page: Int
+    prevPage: Int
+    totalDocs: Int
+    totalPages: Int
+}
+
+input AddressInput {
+    city: String
+    country: String
+    state: String
+    street: String
+}
+
+input ContactInput {
+    address: AddressInput
+    email: String
+    mobile: String
+}
+
+input LoginInput {
+    email: String!
+    password: String!
+}
+
+input ProfileInput {
+    _id: ID!
+    bio: String
+    branch: String
+    college: String
+    contact: ContactInput
+    degree: String
+    dob: String
+    fName: String
+    fullName: String
+    gender: String
+    lName: String
+    profilePicUrl: String
+    social: String
+    tags: [TagInput]
+    university: String
+    website: String
+}
+
+input ProjectInput {
+    body: String
+    end: String
+    isPaid: Boolean
+    start: String
+    title: String!
+    titleType: String
+    type: String
+}
+
+input TagInput {
+    _id: ID!
+    name: String!
+    weight: String!
+}
+
+input UserInput {
+    dob: String
+    email: String!
+    fName: String!
+    gender: String
+    lName: String
+    password: String!
+    role: String
+}

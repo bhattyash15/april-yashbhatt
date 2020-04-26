@@ -1,0 +1,49 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Guest {
+    _id: ID!
+    email: String
+    mobile: String
+}
+
+type Mutation {
+    createGuest(input: GuestInput): Guest
+    createUser(input: UserInput): User
+    verifyGuestUser(_id: ID!, input: String!): GuestStatus
+}
+
+type Query {
+    allUsers: [User]
+}
+
+type User {
+    _id: ID!
+    fname: String!
+    lName: String
+    password: String!
+    role: String
+    username: String!
+}
+
+enum GuestStatus {
+    expired
+    guest_not_exists
+    verified
+}
+
+input GuestInput {
+    email: String
+    mobile: String
+}
+
+input UserInput {
+    fname: String!
+    lName: String
+    password: String!
+    role: String
+}
