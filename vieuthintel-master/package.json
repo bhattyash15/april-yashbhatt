@@ -8,7 +8,7 @@
   "dependencies": {
     "apollo-server": "^2.11.0",
     "apollo-server-core": "^2.11.0",
-    "apollo-server-express": "^2.11.0",
+    "apollo-server-express": "^2.14.2",
     "bcrypt": "^4.0.1",
     "connect-mongodb-session": "^2.3.1",
     "cookie-parser": "~1.4.4",
